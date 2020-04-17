@@ -1,0 +1,34 @@
+<%- include("_header") -%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rickroll!</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Web Architectures</h1>
+<h2>Sign in avec node.js</h2>
+
+<form action="/signin" method="post" id="signin">
+    <div>
+        <label for="idt">Email or Nickname :</label>
+        <input type="text" id="idt" name="idt">
+    </div>
+    <div>
+        <label for="plain_password">Password :</label>
+        <input type="text" id="plain_password" name="plain_password">
+    </div>
+    <div class="button">
+        <button type="submit">Sign in</button>
+    </div>
+</form>
+
+</body>
+</html>
+
+<%- include("_footer") -%>

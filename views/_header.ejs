@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+
+<style>
+.topright {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>AppTest</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<% if (typeof sess !== 'undefined') { %>
+	<div class="topright">Bonjour, <%= sess.nick %></div>
+<% } %>
+	  
+<% if (typeof sess === 'undefined') { %>
+	<div class="topright">Bonjour, Invité</div>
+<% } %>
+
+
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">AppTest</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/faq">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </nav>

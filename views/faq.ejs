@@ -1,0 +1,91 @@
+<%- include("chercher") -%>
+
+<%- include("_header") -%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rickroll!</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
+</style>
+ <a href="/faq/http" id="domaine" name="domaine" value="http">HTTP</a>
+ <a href="/faq/javascript" id="domaine" name="domaine" value="javascript">JAVASCRIPT</a>
+ <a href="/faq/python" id="domaine" name="domaine" value="python">PYTHON</a>
+ <a href="/faq/nginx" id="domaine" name="domaine" value="nginx">NGINX</a>
+ <a href="/faq/linux" id="domaine" name="domaine" value="linux">LINUX</a> 
+ <a href="/faq/node" id="domaine" name="domaine" value="node">NODE</a>
+
+</head>
+<body>
+
+<h1>Web Architectures</h1>
+<h2>FAQ avec node.js</h2>
+
+<h1>List of q/r (<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Reponse</th>
+		<th>Domaine</th>
+		<th>Id utilisateur original</th>
+		<th>Id(s) du/des utilisateur(s) ayant aimé cette réponse</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const faq of model) { %>
+        <tr>
+          <td><%= faq.question %></td>
+          <td><%= faq.reponse %></td>
+		  <td><%= faq.domaine %></td>
+		  <td><%= faq.usersIds %></td>
+		  <td><%= faq.votersIds %></td>
+		  <td>
+		    <form action="/upvote" method="post">
+			  <div>
+			    <input type="hidden" id="r" name="r" value=<%=faq.reponse %>>
+			  </div>
+			  <div>
+			    <input type="submit" name="upvote" value="J'aime" />
+			  </div>
+		    </form>
+		  </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+<br />
+
+<label for="domaine">Choisissez un domaine :</label>
+<select type="text" id="domaine" name="domaine" form="leform">
+  <option value="http">http</option>
+  <option value="javascript">javascript</option>
+  <option value="python">python</option>
+  <option value="nginx">nginx</option>
+  <option value="linux">linux</option>
+  <option value="node">node</option>
+</select>
+
+<form action="/faq" method="post" id="leform">
+    <div>
+        <label for="question">Question :</label>
+        <input type="text" id="question" name="question">
+    </div>
+    <div>
+        <label for="reponse">Réponse :</label>
+        <input type="text" id="reponse" name="reponse">
+    </div>
+    <div class="button">
+        <button type="submit">Soumettre le questionnaire</button>
+    </div>
+</form>
+
+</body>
+</html>
+
+<%- include("_footer") -%>

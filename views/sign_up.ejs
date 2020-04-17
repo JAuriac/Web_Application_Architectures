@@ -1,0 +1,66 @@
+<%- include("_header") -%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rickroll!</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Web Architectures</h1>
+<h2>Sign up avec node.js</h2>
+
+<l>Réponse la mieux notée :</l>
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Reponse</th>
+		<th>Domaine</th>
+		<th>Id utilisateur original</th>
+		<th>Id(s) du/des utilisateur(s) ayant aimé cette réponse</th>
+      </tr>
+    </thead>
+    <tbody>
+		<tr>
+		  <td><%= model.question %></td>
+		  <td><%= model.reponse %></td>
+		  <td><%= model.domaine %></td>
+		  <td><%= model.usersIds %></td>
+		  <td><%= model.votersIds %></td>
+		</tr>
+    </tbody>
+  </table>
+</div>
+<br />
+
+<form action="/signup" method="post" id="signup">
+    <div>
+        <label for="email">Email :</label>
+        <input type="text" id="email" name="email">
+    </div>
+    <div>
+        <label for="nickname">Nickname :</label>
+        <input type="text" id="nickname" name="nickname">
+    </div>
+    <div>
+        <label for="encrypted_password">Password :</label>
+        <input type="text" id="encrypted_password" name="encrypted_password">
+    </div>
+    <div class="button">
+        <button type="submit">Sign up</button>
+    </div>
+</form>
+
+<br/>
+<input type="button" onclick="location.href='sign_in';" value="Sign in" />
+
+</body>
+</html>
+
+<%- include("_footer") -%>
